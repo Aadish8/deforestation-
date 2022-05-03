@@ -36,6 +36,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     otherSprite.destroy(effects.disintegrate, 500)
     scene.cameraShake(4, 500)
 })
+let mySprite7: Sprite = null
 let mySprite6: Sprite = null
 let mySprite5: Sprite = null
 let mySprite3: Sprite = null
@@ -318,8 +319,9 @@ scene.setBackgroundImage(img`
     `)
 tiles.setCurrentTilemap(tilemap`level2`)
 scene.cameraFollowSprite(mySprite)
-mySprite.ay = 350
+mySprite.ay = 450
 info.setLife(10)
+info.startCountdown(120)
 game.onUpdate(function () {
     mySprite.setImage(img`
         . . . f f f f f . . . . . 
@@ -396,8 +398,6 @@ game.onUpdate(function () {
             . f f f f f f f f f f . . 
             . . f f . . . f f f . . . 
             `)
-    } else {
-    	
     }
     if (mySprite.vx < 0) {
         mySprite.image.flipX()
@@ -459,21 +459,55 @@ game.onUpdateInterval(2000, function () {
         `, SpriteKind.Enemy)
     mySprite5.setPosition(388, 125)
     mySprite6 = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Player)
+        ........................
+        ........................
+        ........................
+        ........................
+        ..............fff.......
+        .............f2fffff....
+        ...........ff22eeeeeff..
+        ..........ff222eeeeeeff.
+        ..........feeeefffeeeef.
+        ..........feeeefffeeeef.
+        .........fe2222eeefffff.
+        .........f2efffff222efff
+        ..cc.....fffeeefffffffff
+        ..cdcc...fee44fbbe44efef
+        ..ccddcc..feddfbb4d4eef.
+        ..ccddcc..feddfbb4d4eef.
+        ....cdddceefddddd4eeef..
+        .....ccdcddee2222222f...
+        ......cccdd44e544444f...
+        .........eeeeffffffff...
+        .............ff...fff...
+        ........................
+        ........................
+        ........................
+        `, SpriteKind.Enemy)
+    mySprite7 = sprites.create(img`
+        ........................
+        ........................
+        ........................
+        ........................
+        ..............fff.......
+        .............f2fffff....
+        ...........ff22eeeeeff..
+        ..........ff222eeeeeeff.
+        ..........feeeefffeeeef.
+        ..........feeeefffeeeef.
+        .........fe2222eeefffff.
+        .........f2efffff222efff
+        ..cc.....fffeeefffffffff
+        ..cdcc...fee44fbbe44efef
+        ..ccddcc..feddfbb4d4eef.
+        ..ccddcc..feddfbb4d4eef.
+        ....cdddceefddddd4eeef..
+        .....ccdcddee2222222f...
+        ......cccdd44e544444f...
+        .........eeeeffffffff...
+        .............ff...fff...
+        ........................
+        ........................
+        ........................
+        `, SpriteKind.Enemy)
 })
